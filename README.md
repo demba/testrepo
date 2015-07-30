@@ -1,3 +1,18 @@
+# Git forkflow notes
+
+    git checkout
+
+One can either checkout a `file` or a commit `d3dadaw` in the commit history of the project. There are notable differences between these two processes.
+
+## checkout on a `file`
+
+When one checks out a file from a previous commit, the file replaces its counterpart in and is put in the staging area. This means that one can modify the file, `git add` and `git commit` to record any changes as part of the project history. To discard any changes, one must `git reset` and checkout a fresh version from `master`.
+
+## checkout on a `commit`
+
+The whole of the current directory is made to look like what it did at the time of said commit.
+
+
 # testrepo
 
 ## This is a nested list
