@@ -10,6 +10,8 @@ When one checks out a file from a previous commit, the file replaces its counter
 
 ## using checkout on a `file` with `reset`
 
+If changes made to the file that was checked out have been staged *but not commited*, then one must unstage them first using `git reset`, followed by a `git checkout file` to revert to the latest committed version of the file. If the changes have already been commited,
+
 
 ## checkout on a `commit`
 
