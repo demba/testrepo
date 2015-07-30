@@ -16,4 +16,4 @@
     print i**2
   ```
 
-[Visit Dataholiks!](https://dataholiks.com)
+[Visit Dataholiks!](http://dataholiks.com)
