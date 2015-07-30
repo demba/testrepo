@@ -8,6 +8,9 @@ One can either checkout a `file` or a commit `d3dadaw` in the commit history of 
 
 When one checks out a file from a previous commit, the file replaces its counterpart in and is put in the staging area. This means that one can modify the file, `git add` and `git commit` to record any changes as part of the project history. To discard any changes, one must `git reset` and checkout a fresh version from `master`.
 
+## using checkout on a `file` with `reset`
+
+
 ## checkout on a `commit`
 
 The whole of the current directory is made to look like what it did at the time of said commit. Any changes made to files here cannot be part of the current branch's history. A new branch must be created to record the changes, and then a `merge` of some kind done to incorporate the changes into `master`. One can also `stash` any changes made `checkout master` to recover the project at the state of the latest commit.
