@@ -14,6 +14,10 @@ If changes made to the file that was checked out have been staged *but not commi
 
 N.B.: Perhaps this can be solved by branches and merging when I read about that.
 
+P.S.: `reset` basically unstages and/or uncommits (*local changes*), which can be followed by a checkout in a straightforward way.
+
+There is a nice example on the [Atlassian tutorial](https://www.atlassian.com/git/tutorials/undoing-changes/git-reset) page.
+
 
 ## checkout on a `commit`
 
