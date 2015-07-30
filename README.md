@@ -10,7 +10,7 @@ When one checks out a file from a previous commit, the file replaces its counter
 
 ## checkout on a `commit`
 
-The whole of the current directory is made to look like what it did at the time of said commit.
+The whole of the current directory is made to look like what it did at the time of said commit. Any changes made to files here cannot be part of the current branch's history. A new branch must be created to record the changes, and then a `merge` of some kind done to incorporate the changes into `master`
 
 
 # testrepo
