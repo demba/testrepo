@@ -34,3 +34,7 @@
 </table>
 
 Made this edit in tstrp1, and pushed. Then made edit in tstrp2 to see what happens (merge)!
+
+Potential conflict here with two different versions of the file!
+
+Conflict resolved!!
