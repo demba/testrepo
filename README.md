@@ -10,7 +10,9 @@ When one checks out a file from a previous commit, the file replaces its counter
 
 ## checkout on a `commit`
 
-The whole of the current directory is made to look like what it did at the time of said commit. Any changes made to files here cannot be part of the current branch's history. A new branch must be created to record the changes, and then a `merge` of some kind done to incorporate the changes into `master`
+The whole of the current directory is made to look like what it did at the time of said commit. Any changes made to files here cannot be part of the current branch's history. A new branch must be created to record the changes, and then a `merge` of some kind done to incorporate the changes into `master`. One can also `stash` any changes made `checkout master` to recover the project at the state of the latest commit.
+
+N.B.: A nice feature here is that `git` will not let you check out a previous commit unless any changes since the latest commit have been staged and committed!
 
 
 # testrepo
