@@ -32,3 +32,5 @@
         <td>Good byyyee!!</td>
     </tr>
 </table>
+
+Made this edit in tstrp1, and pushed. Then made edit in tstrp2 to see what happens (merge)!
