@@ -32,3 +32,5 @@
         <td>Good byyyee!!</td>
     </tr>
 </table>
+
+Potential conflict here with two different versions of the file!
