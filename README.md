@@ -40,7 +40,7 @@ N.B.: A nice feature here is that `git` will not let you check out a previous co
     print i**2
   ```
 
-> "Do you have time to meet?" That's what the b*tch said.
+> "Do you have time to meet?" That's what she asked.
 >
 > A block quote with two paragraphs.
 
