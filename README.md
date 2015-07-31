@@ -37,6 +37,7 @@ N.B.: A nice feature here is that `git` will not let you check out a previous co
   1. There will be something
   2. And then, perhaps, nothing.
 
+
   ## This is a block of code, inside a two-level list
 
   ```
