@@ -89,6 +89,42 @@ Yo yo yo
 
 Note that one refers to remote branches as `<remote>/<master>`, so that all commands that accept a local branch can work with this syntax.
 
+`git branch <branch>`
+
+Create a new branch called <branch>.
+
+`git branch -d <branch>`
+
+Delete the specified branch.
+
+`git branch -D <branch>`
+
+Force delete the specified branch.
+
+`git branch -m <branch>`
+
+Rename current branch to `branch`
+
+Unlike a `checkout` on a commit, a `checkout` on a branch is **not** a read-only operation. The directory is made to look like the `branch` and changes can be staged, committed etc...
+
+`git checkout <existing-branch>`
+
+"Check out the specified branch, which should have already been created with git branch. This makes <existing-branch> the current branch, and updates the working directory to match.""
+
+`git checkout -b <new-branch>`
+
+"Create and check out <new-branch>. The -b option is a convenience flag that tells Git to run git branch <new-branch> before running git checkout <new-branch>."
+
+`git checkout -b <new-branch> <existing-branch>`
+
+"Same as the above invocation, but base the new branch off of <existing-branch> instead of the current branch."
+
+## merging
+
+`git merge <branch>`
+
+You always merge `branch` in the current branch. One can either do a fast-forward merge, or a three-way merge. In the former case, there is a *linear* commit history from HEAD of current branch to HEAD of branch one is merging into. In the latter case, the branches have diverged, so that one must go back to the most common ancestor first.
+
 # testrepo
 
 ## This is a nested list
