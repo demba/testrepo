@@ -6,7 +6,7 @@ One can either checkout a `file` or a commit `d3dadaw` in the commit history of 
 
 ## checkout on a `file`
 
-When one checks out a file from a previous commit, the file replaces its counterpart in and is put in the staging area. This means that one can modify the file, `git add` and `git commit` to record any changes as part of the project history. To discard any changes, one must `git reset` and checkout a fresh version from `master`.
+When one checks out a file from a previous commit, the file replaces its counterpart in and is put in the staging area. This means that one can modify the file, `git add` and `git commit` to record any changes as part of the project history. To discard any changes, one must `git reset` and checkout a fresh version from `master`, or do a `git reset --hard`.
 
 ## using checkout on a `file` with `reset`
 
@@ -14,7 +14,7 @@ If changes made to the file that was checked out have been staged *but not commi
 
 N.B.: Perhaps this can be solved by branches and merging when I read about that.
 
-P.S.: `reset` basically unstages and/or uncommits (*local changes*), which can be followed by a checkout in a straightforward way.
+P.S.: `reset` basically unstages and/or uncommits (*local changes*), which can be followed by a checkout in a straightforward way, or simply a hard reset.
 
 There is a nice example on the [Atlassian tutorial](https://www.atlassian.com/git/tutorials/undoing-changes/git-reset) page.
 
@@ -25,6 +25,67 @@ The whole of the current directory is made to look like what it did at the time 
 
 N.B.: A nice feature here is that `git` will not let you check out a previous commit unless any changes since the latest commit have been staged and committed!
 
+# Collaboration workflows
+
+## Establishing connections to remote repos
+
+In git, you have access to a dedicated *local* version-controlled development environment. You can pull from/push to other non-local repositories using the `git remote` command
+
+`git remote -v`: list all remote connections with url
+
+`git remote add`
+
+`git remote rm`
+
+`git remote rename`
+
+## Looking at remote changes before incorporating locally
+
+The `git fetch` commands allows you to look at changes from a(ll) branch(es) before incorporating them in one's local repo.
+
+`git fetch <remote>`
+
+`git fetch <remote> <branch>`
+
+## Incorporating `remote` changes locally using `git pull`
+
+`git pull remote` does the same thing as a `git fetch` followed by a `git merge`. So it fetches changes to remote branches, without intengrating them right away into the local repo. It follows this by merging remote branches into local ones.
+
+### Rebasing
+
+Rebasing is a way to ensure a **linear** commit/change history. It's basically saying "I'd like to put my changes on top of everybody else's". It's so common that a way to automatically build it into one's workflow is
+
+`git config --global branch.autosetuprebase always`
+
+`git pull --rebase`
+
+`git checkout master &&
+git pull --rebase origin`
+
+There's a way of 'cleaning-up' one's changes first with a interactive `rebase` before pushing them.
+
+## Sharing local changes with `remote` using `git push`
+
+`git push <remote> <branch>`
+
+`git push <remote> --all`
+
+Yo yo yo
+
+  ```
+  git checkout master
+  git fetch origin master
+  git rebase -i origin/master
+  # Squash commits, fix up commit messages etc.
+  git push origin master
+  ```
+
+
+## Branching
+
+`git branch -r` lets you see which branches you might see after fetching from a `remote`.
+
+Note that one refers to remote branches as `<remote>/<master>`, so that all commands that accept a local branch can work with this syntax.
 
 # testrepo
 
