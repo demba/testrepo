@@ -62,7 +62,9 @@ Rebasing is a way to ensure a **linear** commit/change history. It's basically s
 `git checkout master &&
 git pull --rebase origin`
 
-There's a way of 'cleaning-up' one's changes first with a interactive `rebase` before pushing them.
+There's a way of 'cleaning-up' one's changes first with a interactive `rebase` before pushing them. More about rebasing [here](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase-i/)!
+
+Basically, you create a new branch from master, do your thing, maybe make changes to master along the way, you checkout the new branch, rebase it from master, checkout master and do a fast-forward merge.
 
 ## Sharing local changes with `remote` using `git push`
 
