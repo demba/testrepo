@@ -66,22 +66,32 @@ There's a way of 'cleaning-up' one's changes first with a interactive `rebase` b
 
 Basically, you create a new branch from master, do your thing, maybe make changes to master along the way, you checkout the new branch, rebase it from master, checkout master and do a fast-forward merge.
 
+The rebasing process pauses at times to resolve conflicts. To carry one after taking care of conflicts,
+
+`git rebase --continue`
+
+"If you get to this point and realize and you have no idea what’s going on, don’t panic. Just execute the following command and you’ll be right back to where you started before you ran `git pull --rebase`
+
+`git rebase --abort`
+
+
 ## Sharing local changes with `remote` using `git push`
 
 `git push <remote> <branch>`
 
 `git push <remote> --all`
 
-Yo yo yo
+```
+git checkout master
+git fetch origin master
+git rebase -i origin/master
+# Squash commits, fix up commit messages etc.
+git push origin master
+```
 
-  ```
-  git checkout master
-  git fetch origin master
-  git rebase -i origin/master
-  # Squash commits, fix up commit messages etc.
-  git push origin master
-  ```
+`git push -u origin marys-feature`
 
+"This command pushes marys-feature to the central repository (origin), and the -u flag adds it as a remote tracking branch. After setting up the tracking branch, Mary can call git push without any parameters to push her feature."
 
 ## Branching
 
@@ -119,11 +129,49 @@ Unlike a `checkout` on a commit, a `checkout` on a branch is **not** a read-only
 
 "Same as the above invocation, but base the new branch off of <existing-branch> instead of the current branch."
 
-## merging
+```
+# Start a new feature
+git checkout -b new-feature master
+
+# Edit some files
+git add <file>
+git commit -m "Start a feature"
+
+# Edit some files
+git add <file>
+git commit -m "Finish a feature"
+
+# Merge in the new-feature branch
+git checkout master
+git merge new-feature
+git branch -d new-feature
+
+```
+
+## Merging
 
 `git merge <branch>`
 
-You always merge `branch` in the current branch. One can either do a fast-forward merge, or a three-way merge. In the former case, there is a *linear* commit history from HEAD of current branch to HEAD of branch one is merging into. In the latter case, the branches have diverged, so that one must go back to the most common ancestor first.
+You always merge `branch` *into* the current branch. One can either do a fast-forward merge, or a three-way merge. In the former case, there is a *linear* commit history from HEAD of current branch to HEAD of branch one is merging into. In the latter case, the branches have diverged, so that one must go back to the most common ancestor first.
+
+To handle **merge conflicts**, running a `git status` lets you know which files need resolving.
+
+Interesting, if you are on a branch, you can simply merge another remotely tracked branch using a git pull
+
+```
+git checkout master
+git pull
+git pull origin marys-feature
+git push
+```
+
+## Different workflows
+
+The *Centralized workflow* is just like in svn or other legacy vcs. The *Feature Branch Workflow* leverages git's distributed collaboration framework (pull requests etc...). In both of these cases, there is **one** central server-side repo. In the *Forking Workflow*, there are multiple server-side repos.
+
+## Submodules
+
+Submodules allow you to link git repos with one another as 'folders'. When you fork someone's git repo, which has submodules, you must also fork the repos corresponding to the submodule. In your clone of the main repo, you must modify the .gitmodules file and clone your fork of the submodule. More info [here](http://git-scm.com/book/en/v2/Git-Tools-Submodules)!
 
 # testrepo
 
